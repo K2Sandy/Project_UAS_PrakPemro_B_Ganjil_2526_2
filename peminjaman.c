@@ -155,7 +155,50 @@ void pinjamBuku() {
 
 
 void riwayatPeminjamanAnggota() {
-             printf("Fitur riwayat peminjaman belum siap ee\n");  
+    char idAnggota[20];
+    printf("Masukkan ID Anggota: ");
+    scanf("%s", idAnggota);
+
+    Peminjaman daftar[100]; // asumsi maksimal 100 peminjaman
+    int total = 0;
+
+    FILE *f = fopen("data_peminjaman.txt", "r");
+    if (!f) {
+        printf("Belum ada data peminjaman.\n");
+        return;
+    }
+
+    while (fscanf(f, "%[^|]|%[^|]|%[^|]|%[^|]|%[^|]|%d|%d\n",
+                  daftar[total].id_pinjam,
+                  daftar[total].id_anggota,
+                  daftar[total].id_buku,
+                  daftar[total].tgl_pinjam,
+                  daftar[total].tgl_kembali,
+                  &daftar[total].denda,
+                  &daftar[total].status) != EOF) {
+        if (strcmp(daftar[total].id_anggota, idAnggota) == 0) {
+            total++;
+        }
+    }
+    fclose(f);
+
+    if (total == 0) {
+        printf("Tidak ada riwayat peminjaman untuk anggota ini.\n");
+        return;
+    }
+
+    printf("\n=== RIWAYAT PEMINJAMAN ANGGOTA %s ===\n", idAnggota);
+    printf("ID Peminjaman | ID Buku | Tgl Pinjam | Tgl Kembali | Denda | Status\n");
+    printf("-----------------------------------------------------------------\n");
+    for (int i = 0; i < total; i++) {
+        printf("%s | %s | %s | %s | %d | %s\n",
+               daftar[i].id_pinjam,
+               daftar[i].id_buku,
+               daftar[i].tgl_pinjam,
+               daftar[i].tgl_kembali,
+               daftar[i].denda,
+               daftar[i].status == 0 ? "Dipinjam" : "Kembali");
+    }
 }
 void kembalikanBuku() {
           printf("Fitur pengembalian buku belum tersedia.\n");
