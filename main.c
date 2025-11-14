@@ -9,7 +9,7 @@ int main() {
         printf("1. Menu Buku\n");
         printf("2. Menu Anggota\n");
         printf("3. Menu Peminjaman\n");
-        printf("4. Login Pustakawan / Utilitas\n");
+        printf("4. Login Sebagai Admin\n");
         printf("0. Keluar\n");
         printf("================================\n");
 
@@ -22,8 +22,8 @@ int main() {
             case 2: menuAnggota(); break;
             case 3: menuPeminjaman(); break;
             case 4: {
-                    if (loginPustakawan()) {   // login dulu
-                         menuUtilitas();        // baru masuk menu utilitas
+                    if (loginAdmin()) {   // login dulu
+                        menuUtilitas();  // baru masuk menu utilitas
                     } else {
                         printf("Login gagal. Kembali ke menu utama.\n");
                     }
