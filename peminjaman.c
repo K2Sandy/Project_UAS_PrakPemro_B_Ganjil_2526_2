@@ -201,5 +201,179 @@ void riwayatPeminjamanAnggota() {
     }
 }
 void kembalikanBuku() {
-          printf("Fitur pengembalian buku belum tersedia.\n");
+    //minta id peminjaman yang ada agar bisa dicek ada ga di file txtnya
+    char idPinjam[10];
+    printf("Masukkan ID Peminjaman: ");
+    scanf("%9s", idPinjam);
+
+    // Baca semua peminjaman
+    Peminjaman daftar[200];
+    int total = 0;
+    FILE *f = fopen("data_peminjaman.txt", "r");
+    if (!f) {
+        printf("Belum ada data peminjaman.\n");
+        return;
+    }
+
+    while (fscanf(f, "%[^|]|%[^|]|%[^|]|%[^|]|%[^|]|%d|%d\n",       //  %[^|], %[ untuk scan, ^ = kecuali,
+                                                                    // jadi %[^|] untuk scanf semua kecuali |
+                  daftar[total].id_pinjam,
+                  daftar[total].id_anggota,
+                  daftar[total].id_buku,
+                  daftar[total].tgl_pinjam,
+                  daftar[total].tgl_kembali,
+                  &daftar[total].denda,
+                  &daftar[total].status) != EOF) {
+        total++;
+        if (total >= 200) break; // safety
+    }
+    fclose(f);
+
+    //cek apakah id yang diinputkan ada atau nggak di file txtnya
+    int idx = -1;
+    for (int i = 0; i < total; i++) {
+        if (strcmp(daftar[i].id_pinjam, idPinjam) == 0) {
+            idx = i;
+            break;
+        }
+    }
+    //kalo ga ada
+    if (idx == -1) {
+        printf("ID peminjaman tidak ditemukan.\n");
+        return;
+    }
+    
+    //kalo udah dikembalikan
+    if (daftar[idx].status == 1) {
+        printf("Peminjaman ini sudah dikembalikan sebelumnya.\n");
+        return;
+    }
+
+
+    //Bagian paling ribet------HITUNG DENDA
+    // parse tgl_pinjam format: dd/mm/yyyy
+    int d=0, m=0, y=0;
+    time_t now = time(NULL);   //ini biar variabel "now" itu isinya waktu realtime pas user pakek sistem ini
+    struct tm tm_pinjam = {0};
+    int parsed = 0;
+
+    //baca disini
+    if (sscanf(daftar[idx].tgl_pinjam, "%d/%d/%d", &d, &m, &y) == 3) {
+        if (y < 100) y += 2000; // jaga2 kalo pengguna masukin 2 angka untuk tahun, misal 24 atau 25
+
+        //  bulan 0-11, tahun - 1900,  udah dijelaskan di atas
+        tm_pinjam.tm_mday = d;
+        tm_pinjam.tm_mon = m - 1;
+        tm_pinjam.tm_year = y - 1900;
+        tm_pinjam.tm_hour = 12; 
+        parsed = 1;
+    }
+
+    int days_elapsed = 0;
+    if (parsed) {
+        time_t t_pinjam = mktime(&tm_pinjam); // fungsi mktime() untuk ubah ke detik
+        if (t_pinjam != (time_t)-1) {           //cek berhasil ga ubah ke detik, kalo gagal kan dia jadi -1
+            double diff = difftime(now, t_pinjam);      //hitung selisih waktu sekarang ma pas pinjam...now itu waktu realtime pengguna sekarang
+            days_elapsed = (int)(diff / (60 * 60 * 24));  //ini untuk konversi detik ke hari hbistu dibagi biar tau total harinya
+            if (days_elapsed < 0) days_elapsed = 0;         // kalo misalnya negatif, diset aja jadi 0
+        } else {
+            parsed = 0;
+        }
+    }
+
+    // hitung pengembaliannya dah lewat berapa hari dari jadwal yg dibolehkan
+    int overdue = 0;
+    extern int durasiMaksimal; // ini dari file utilitas.c, bisa diubah disitu
+    if (parsed) {
+        if (days_elapsed > durasiMaksimal) overdue = days_elapsed - durasiMaksimal;
+    } else {
+        // If date cannot be parsed, we won't compute overdue; just set returned date
+        overdue = 0;
+    }
+
+    const int denda_per_hari = 1000; // sehari kita set denda 1000 rupiah
+    daftar[idx].denda = overdue * denda_per_hari;       //simpan hasil denda
+    daftar[idx].status = 1;                     //kalo udah dikembalikan jadi 1
+
+    // set tgl_kembali ke tanggal hari ini
+    struct tm *tm_now = localtime(&now);
+    if (tm_now) {
+        int hari  = tm_now->tm_mday;
+        int bulan = tm_now->tm_mon + 1;
+        int tahun = tm_now->tm_year + 1900;
+
+        snprintf(daftar[idx].tgl_kembali, sizeof(daftar[idx].tgl_kembali),
+                "%02d/%02d/%04d", hari, bulan, tahun);
+    } else {
+        strcpy(daftar[idx].tgl_kembali, "-");
+    }
+
+    // Tulis ulang file data_peminjaman.txt
+    FILE *fw = fopen("data_peminjaman.txt", "w");
+    if (!fw) {
+        printf("Gagal membuka file data_peminjaman.txt untuk menulis.\n");
+        return;
+    }
+    for (int i = 0; i < total; i++) {
+        fprintf(fw, "%s|%s|%s|%s|%s|%d|%d\n",
+                daftar[i].id_pinjam,
+                daftar[i].id_anggota,
+                daftar[i].id_buku,
+                daftar[i].tgl_pinjam,
+                daftar[i].tgl_kembali,
+                daftar[i].denda,
+                daftar[i].status);
+    }
+    fclose(fw);
+
+    // Update data_buku.txt karena bagian dipinjamnya kan kurang 1 jadinya karena udah dibalikin
+    Buku bukuList[200];
+    int totalBuku = 0;
+    FILE *fb = fopen("data_buku.txt", "r");
+    if (fb) {
+
+        while (fscanf(fb, "%[^|]|%[^|]|%[^|]|%[^|]|%d|%d|%d\n",         //masi perlu perbaikan
+                      bukuList[totalBuku].id,
+                      bukuList[totalBuku].judul,
+                      bukuList[totalBuku].penulis,
+                      bukuList[totalBuku].kategori,
+                      &bukuList[totalBuku].tahun,
+                      &bukuList[totalBuku].stok,
+                      &bukuList[totalBuku].dipinjam) != EOF) {
+            totalBuku++;
+            if (totalBuku >= 200) break;
+        }
+        fclose(fb);
+
+        //disini "dipinjam" nya dikurangin
+        for (int i = 0; i < totalBuku; i++) {
+            if (strcmp(bukuList[i].id, daftar[idx].id_buku) == 0) {
+                if (bukuList[i].dipinjam > 0) bukuList[i].dipinjam--;
+                break;
+            }
+        }
+
+        // tulis ulang file buku
+        FILE *fbw = fopen("data_buku.txt", "w");
+        if (fbw) {
+            for (int i = 0; i < totalBuku; i++) {
+                fprintf(fbw, "%s|%s|%s|%s|%d|%d|%d\n",
+                        bukuList[i].id,
+                        bukuList[i].judul,
+                        bukuList[i].penulis,
+                        bukuList[i].kategori,
+                        bukuList[i].tahun,
+                        bukuList[i].stok,
+                        bukuList[i].dipinjam);
+            }
+            fclose(fbw);
+        } else {
+            printf("Gagal menulis file data_buku.txt setelah pengembalian.\n");
+        }
+    } else {
+        // file buku tidak ditemukan, hanya informasikan pengembalian
+        printf("File data_buku.txt tidak ditemukan saat memperbarui stok buku.\n");
+    }
+
+    printf("Buku berhasil dikembalikan. Denda: %d\n", daftar[idx].denda);
 }
