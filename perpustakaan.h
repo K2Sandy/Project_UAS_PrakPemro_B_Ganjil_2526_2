@@ -64,8 +64,7 @@ void riwayatPeminjamanAnggota();
 int cekIdAnggota(char *idAnggota);
 
 // login.c
-// login.c
-int loginPustakawan();
+int loginAdmin();
 
 // utilitas.c
 extern int durasiMaksimal;
