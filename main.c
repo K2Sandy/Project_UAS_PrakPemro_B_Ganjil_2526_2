@@ -4,7 +4,7 @@ int main() {
     int pilihan;
     do {
         printf("\n================================\n");
-        printf("=== SISTEM PERPUSTAKAAN MINI ===\n");
+        printf("    SISTEM PERPUSTAKAAN MINI    \n");
         printf("================================\n");
         printf("1. Menu Buku\n");
         printf("2. Menu Anggota\n");
@@ -36,3 +36,4 @@ int main() {
 
     return 0;
 }
+
