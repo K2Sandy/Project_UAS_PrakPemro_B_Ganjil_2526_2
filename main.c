@@ -23,7 +23,7 @@ int main() {
             case 3: menuPeminjaman(); break;
             case 4: {
                     if (loginAdmin()) {   // login dulu
-                        menuUtilitas();  // baru masuk menu utilitas
+                        menuUtilitas();   // baru masuk menu utilitas
                     } else {
                         printf("Login gagal. Kembali ke menu utama.\n");
                     }
