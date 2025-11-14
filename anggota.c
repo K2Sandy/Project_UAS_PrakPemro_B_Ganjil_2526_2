@@ -3,7 +3,7 @@
 void menuAnggota() {
     int pilihan;
     do {
-        printf("\n=== MENU ANGGOTA ===\n");
+        printf("\n==== MENU ANGGOTA ====\n");
         printf("1. Daftar Anggota Baru\n");
         printf("2. Lihat Daftar Anggota\n");
         printf("0. Kembali\n");
@@ -50,3 +50,4 @@ void lihatAnggota() {
     }
     fclose(f);
 }
+
