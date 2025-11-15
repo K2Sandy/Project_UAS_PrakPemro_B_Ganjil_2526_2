@@ -105,7 +105,7 @@ void hapusBuku() {
     int totalBuku = 0;
 
     FILE *f = fopen("data_buku.txt", "r");
-    if (!f) { printf("Belum ada data buku.\n"); return; }
+    if (!f) { printf("Belum ada data buku.\n"); return; }// pastikan file dibuka
 
     // Baca semua buku ke memory
     while (fscanf(f, "%[^|]|%[^|]|%[^|]|%[^|]|%d|%d|%d\n",
