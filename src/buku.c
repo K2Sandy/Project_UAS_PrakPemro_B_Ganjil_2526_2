@@ -14,6 +14,7 @@ void menuBuku() {
         scanf("%d", &pilihan);
         getchar();
 
+        // Untuk menjalankan fungsi sesuai pilihan  
         switch (pilihan) {
             case 1: tambahBuku(); break;
             case 2: lihatDaftarBuku(); break;
