@@ -168,7 +168,9 @@ void riwayatPeminjamanAnggota() {
         return;
     }
 
-    while (fscanf(f, "%[^|]|%[^|]|%[^|]|%[^|]|%[^|]|%d|%d\n",
+    /* bisa one liner gini tapi kurang aman dan sangat ribet
+    while (fscanf(f, "%[^|]|%[^|]|%[^|]|%[^|]|%[^|]|%d|%d\n",            %[^|], %[ untuk scan, ^ = kecuali,
+                                                                         jadi %[^|] untuk scanf semua kecuali |
                   daftar[total].id_pinjam,
                   daftar[total].id_anggota,
                   daftar[total].id_buku,
@@ -176,6 +178,16 @@ void riwayatPeminjamanAnggota() {
                   daftar[total].tgl_kembali,
                   &daftar[total].denda,
                   &daftar[total].status) != EOF) {
+    */
+    while (1) {
+            if (fscanf(f, "%[^|]|", daftar[total].id_pinjam) != 1) break;
+            if (fscanf(f, "%[^|]|", daftar[total].id_anggota) != 1) break;
+            if (fscanf(f, "%[^|]|", daftar[total].id_buku) != 1) break;
+            if (fscanf(f, "%[^|]|", daftar[total].tgl_pinjam) != 1) break;
+            if (fscanf(f, "%[^|]|", daftar[total].tgl_kembali) != 1) break;
+            if (fscanf(f, "%d|",   &daftar[total].denda) != 1) break;
+            if (fscanf(f, "%d\n",  &daftar[total].status) != 1) break;
+
         if (strcmp(daftar[total].id_anggota, idAnggota) == 0) {
             total++;
         }
