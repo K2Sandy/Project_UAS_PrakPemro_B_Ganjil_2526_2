@@ -34,6 +34,7 @@ void tambahBuku() {
         printf("Gagal membuka file data_buku.txt\n");
         return;
     }
+    // Untuk menginput data buku
     printf("Masukkan ID Buku: "); scanf("%s", b.id);
     getchar();
     printf("Masukkan Judul Buku: "); fgets(b.judul, sizeof(b.judul), stdin);
