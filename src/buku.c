@@ -2,7 +2,7 @@
 
 void menuBuku() {
     int pilihan;
-    do {
+    do {  //untuk memulai loop yang pasti dijalankan minimal 1 kali.
         printf("\n=== MENU BUKU ===\n");
         printf("1. Tambah Buku\n");
         printf("2. Lihat Daftar Buku\n");
