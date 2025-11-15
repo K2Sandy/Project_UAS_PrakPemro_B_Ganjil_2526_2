@@ -173,11 +173,11 @@ void editBuku() {
             found = 1;
             getchar();
             printf("Judul baru (%s): ", daftar[i].judul);
-            fgets(daftar[i].judul, sizeof(daftar[i].judul), stdin);
+            fgets(daftar[i].judul, sizeof(daftar[i].judul), stdin); //sizeof mengukur ukuran array 'judul' dalam struktur 'Buku'
             strtok(daftar[i].judul, "\n");
 
             printf("Penulis baru (%s): ", daftar[i].penulis);
-            fgets(daftar[i].penulis, sizeof(daftar[i].penulis), stdin);
+            fgets(daftar[i].penulis, sizeof(daftar[i].penulis), stdin); 
             strtok(daftar[i].penulis, "\n");
 
             printf("Kategori baru (%s): ", daftar[i].kategori);
