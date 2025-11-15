@@ -26,7 +26,7 @@ void menuBuku() {
     } while (pilihan != 0);
 }
 
-void tambahBuku() {
+void tambahBuku() { 
     Buku b;
     FILE *f = fopen("data_buku.txt", "a");
     if (!f) {
@@ -57,6 +57,7 @@ void lihatDaftarBuku() {
         return;
     }
 
+    // untuk print header tabel 
     printf("\n===== DAFTAR BUKU =====\n");
     printf("%-8s | %-25s | %-20s | %-10s | %-5s | %-5s | %-5s\n",
            "ID", "Judul", "Penulis", "Kategori", "Thn", "Stok", "Pinjam");
