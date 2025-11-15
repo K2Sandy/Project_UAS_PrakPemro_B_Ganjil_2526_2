@@ -41,7 +41,7 @@ void tambahBuku() {
     strtok(b.judul, "\n"); ////hapus karakter '\n' dari hasil fgets
     printf("Masukkan Penulis: "); fgets(b.penulis, sizeof(b.penulis), stdin);
     strtok(b.penulis, "\n");
-    printf("Masukkan Kategori (Fiksi/NonFiksi/Komik/Majalah/Referensi): "); scanf("%s", b.kategori);
+    printf("Masukkan Kategori (Fiksi/NonFiksi/Komik/Majalah/Referensi): "); scanf("%s", b.kategori); // Meminta user memasukkan kategori buku dan menyimpannya ke variabel b.kategori
     printf("Masukkan Tahun Terbit: "); scanf("%d", &b.tahun);
     printf("Masukkan Stok Buku: "); scanf("%d", &b.stok);
     b.dipinjam = 0;
