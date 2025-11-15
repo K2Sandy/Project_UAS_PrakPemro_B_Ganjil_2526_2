@@ -2,7 +2,7 @@
 
 void menuBuku() {
     int pilihan;
-    do {
+    do {  //untuk memulai loop yang pasti dijalankan minimal 1 kali.
         printf("\n=== MENU BUKU ===\n");
         printf("1. Tambah Buku\n");
         printf("2. Lihat Daftar Buku\n");
@@ -14,6 +14,7 @@ void menuBuku() {
         scanf("%d", &pilihan);
         getchar();
 
+        // Untuk menjalankan fungsi sesuai pilihan  
         switch (pilihan) {
             case 1: tambahBuku(); break;
             case 2: lihatDaftarBuku(); break;
@@ -26,17 +27,18 @@ void menuBuku() {
     } while (pilihan != 0);
 }
 
-void tambahBuku() {
+void tambahBuku() { 
     Buku b;
     FILE *f = fopen("data_buku.txt", "a");
     if (!f) {
         printf("Gagal membuka file data_buku.txt\n");
         return;
     }
+    // Untuk menginput data buku
     printf("Masukkan ID Buku: "); scanf("%s", b.id);
     getchar();
     printf("Masukkan Judul Buku: "); fgets(b.judul, sizeof(b.judul), stdin);
-    strtok(b.judul, "\n");
+    strtok(b.judul, "\n"); ////hapus karakter '\n' dari hasil fgets
     printf("Masukkan Penulis: "); fgets(b.penulis, sizeof(b.penulis), stdin);
     strtok(b.penulis, "\n");
     printf("Masukkan Kategori (Fiksi/NonFiksi/Komik/Majalah/Referensi): "); scanf("%s", b.kategori);
@@ -57,12 +59,14 @@ void lihatDaftarBuku() {
         return;
     }
 
+    // untuk print header tabel 
     printf("\n===== DAFTAR BUKU =====\n");
     printf("%-8s | %-25s | %-20s | %-10s | %-5s | %-5s | %-5s\n",
            "ID", "Judul", "Penulis", "Kategori", "Thn", "Stok", "Pinjam");
     printf("--------------------------------------------------------------------------\n");
     while (fscanf(f, "%[^|]|%[^|]|%[^|]|%[^|]|%d|%d|%d\n",
                   b.id, b.judul, b.penulis, b.kategori, &b.tahun, &b.stok, &b.dipinjam) != EOF) {
+        // Untuk menampilkan data
         printf("%-8s | %-25s | %-20s | %-10s | %-5d | %-5d | %-5d\n",
                b.id, b.judul, b.penulis, b.kategori, b.tahun, b.stok, b.dipinjam);
     }
@@ -84,8 +88,10 @@ void cariBuku() {
     strtok(keyword, "\n");
 
     printf("\nHasil pencarian:\n");
+    // Untuk membaca semua buku lalu mengecek kecocokan dengan keyword
     while (fscanf(f, "%[^|]|%[^|]|%[^|]|%[^|]|%d|%d|%d\n",
                   b.id, b.judul, b.penulis, b.kategori, &b.tahun, &b.stok, &b.dipinjam) != EOF) {
+        // Untuk mencocokkan judul, penulis, dan kategori buku
         if (strstr(b.judul, keyword) || strstr(b.penulis, keyword) || strstr(b.kategori, keyword)) {
             printf("%s - %s (%s) [%s]\n", b.id, b.judul, b.penulis, b.kategori);
         }
@@ -116,8 +122,9 @@ void hapusBuku() {
 
     printf("Masukkan ID Buku yang ingin dihapus: ");
     scanf("%s", idHapus);
-
+    
     int found = 0;
+    // Untuk menulis ulang file tanpa data yang dihapus
     FILE *fw = fopen("data_buku.txt", "w");
     for (int i = 0; i < totalBuku; i++) {
         if (strcmp(daftar[i].id, idHapus) == 0) {
@@ -144,7 +151,7 @@ void editBuku() {
     FILE *f = fopen("data_buku.txt", "r");
     if (!f) { printf("Belum ada data buku.\n"); return; }
 
-    // Baca semua buku ke memory
+    // Untuk membaca seluruh data buku
     while (fscanf(f, "%[^|]|%[^|]|%[^|]|%[^|]|%d|%d|%d\n",
                   daftar[totalBuku].id,
                   daftar[totalBuku].judul,
@@ -166,11 +173,11 @@ void editBuku() {
             found = 1;
             getchar();
             printf("Judul baru (%s): ", daftar[i].judul);
-            fgets(daftar[i].judul, sizeof(daftar[i].judul), stdin);
+            fgets(daftar[i].judul, sizeof(daftar[i].judul), stdin); //sizeof mengukur ukuran array 'judul' dalam struktur 'Buku'
             strtok(daftar[i].judul, "\n");
 
             printf("Penulis baru (%s): ", daftar[i].penulis);
-            fgets(daftar[i].penulis, sizeof(daftar[i].penulis), stdin);
+            fgets(daftar[i].penulis, sizeof(daftar[i].penulis), stdin); 
             strtok(daftar[i].penulis, "\n");
 
             printf("Kategori baru (%s): ", daftar[i].kategori);
@@ -191,7 +198,7 @@ void editBuku() {
         return;
     }
 
-    // Tulis ulang semua buku ke file
+    // Untuk menulis ulang semua buku ke file
     FILE *fw = fopen("data_buku.txt", "w");
     for (int i = 0; i < totalBuku; i++) {
         fprintf(fw, "%s|%s|%s|%s|%d|%d|%d\n",
