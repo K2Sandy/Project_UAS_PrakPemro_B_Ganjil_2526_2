@@ -358,7 +358,7 @@ void kembalikanBuku() {
     FILE *fb = fopen("data_buku.txt", "r");
     if (fb) {
 
-        while (fscanf(fb, "%[^|]|%[^|]|%[^|]|%[^|]|%d|%d|%d\n",         //masi perlu perbaikan
+        /* while (fscanf(fb, "%[^|]|%[^|]|%[^|]|%[^|]|%d|%d|%d\n",         //masi perlu perbaikan
                       bukuList[totalBuku].id,
                       bukuList[totalBuku].judul,
                       bukuList[totalBuku].penulis,
@@ -367,7 +367,19 @@ void kembalikanBuku() {
                       &bukuList[totalBuku].stok,
                       &bukuList[totalBuku].dipinjam) != EOF) {
             totalBuku++;
-            if (totalBuku >= 200) break;
+            if (totalBuku >= 200) break; 
+        } */
+        while (1) {
+            if (fscanf(fb, "%[^|]|", bukuList[totalBuku].id) != 1) break;
+            if (fscanf(fb, "%[^|]|", bukuList[totalBuku].judul) != 1) break;
+            if (fscanf(fb, "%[^|]|", bukuList[totalBuku].penulis) != 1) break;
+            if (fscanf(fb, "%[^|]|", bukuList[totalBuku].kategori) != 1) break;
+            if (fscanf(fb, "%d|", &bukuList[totalBuku].tahun) != 1) break;
+            if (fscanf(fb, "%d|", &bukuList[totalBuku].stok) != 1) break;
+            if (fscanf(fb, "%d\n", &bukuList[totalBuku].dipinjam) != 1) break;
+
+            totalBuku++;
+            if (totalBuku >= 200) break; // jaga2
         }
         fclose(fb);
 
