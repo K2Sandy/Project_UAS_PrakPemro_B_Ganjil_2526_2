@@ -86,6 +86,7 @@ void cariBuku() {
     strtok(keyword, "\n");
 
     printf("\nHasil pencarian:\n");
+    // Untuk membaca semua buku lalu mengecek kecocokan dengan keyword
     while (fscanf(f, "%[^|]|%[^|]|%[^|]|%[^|]|%d|%d|%d\n",
                   b.id, b.judul, b.penulis, b.kategori, &b.tahun, &b.stok, &b.dipinjam) != EOF) {
         if (strstr(b.judul, keyword) || strstr(b.penulis, keyword) || strstr(b.kategori, keyword)) {
