@@ -1,4 +1,3 @@
-# Project_UAS_PrakPemro_B_Ganjil_2526_2
 # 📚 Sistem Peminjaman Buku – Perpustakaan Mini
 
 Repository ini berisi **Project Ujian Akhir Semester (UAS)** untuk mata kuliah **Praktikum Pemrograman B 2025/2026**, dikerjakan oleh **Kelompok 2**.
@@ -14,8 +13,6 @@ Seluruh data pada sistem disimpan ke file eksternal berformat **.txt** secara mo
 
 * Login pustakawan.
 
----
-
 ## 📘 Manajemen Buku
 
 * Menambahkan buku baru.
@@ -26,22 +23,16 @@ Seluruh data pada sistem disimpan ke file eksternal berformat **.txt** secara mo
 * Mengubah status buku (Tersedia / Dipinjam).
 * Menampilkan ranking buku paling sering dipinjam.
 
----
-
 ## 👥 Manajemen Anggota
 
 * Mendaftarkan anggota baru.
 * Melihat riwayat peminjaman anggota.
-
----
 
 ## 🔄 Peminjaman & Pengembalian
 
 * Melakukan peminjaman dan pengembalian buku.
 * Menghitung denda keterlambatan otomatis.
 * Mengelola batas maksimal durasi peminjaman.
-
----
 
 ## 📂 Penyimpanan Data
 
@@ -51,23 +42,25 @@ Seluruh data pada sistem disimpan ke file eksternal berformat **.txt** secara mo
 
 # ▶️ Cara Menjalankan Program
 
-1. Pastikan Anda memiliki compiler C seperti **GCC** atau menggunakan IDE (VS Code, CodeBlocks, dll).
-
-2. Compile program dengan perintah:
+1. **Masuk ke folder proyek**
+   Pastikan Anda berada di direktori yang berisi semua file `.c` dan `perpustakaan.h`.
 
    ```bash
-   gcc main.c -o perpustakaan
+   cd nama-folder-proyek
    ```
 
-   *(Sesuaikan jika ada file tambahan seperti `.c` lain.)*
+2. **Compile program**
+   Program terdiri dari beberapa file, maka compile dengan:
 
-3. Jalankan program:
+   ```bash
+   gcc main.c anggota.c buku.c peminjaman.c login.c Menu_Utilitas.c -o perpustakaan
+   ```
+
+3. **Jalankan program**
 
    ```bash
    ./perpustakaan
    ```
-
-4. Pastikan file-data `.txt` berada dalam satu folder dengan executable agar sistem dapat membaca dan memperbarui data.
 
 ---
 
