@@ -151,7 +151,7 @@ void editBuku() {
     FILE *f = fopen("data_buku.txt", "r");
     if (!f) { printf("Belum ada data buku.\n"); return; }
 
-    // Baca semua buku ke memory
+    // Untuk membaca seluruh data buku
     while (fscanf(f, "%[^|]|%[^|]|%[^|]|%[^|]|%d|%d|%d\n",
                   daftar[totalBuku].id,
                   daftar[totalBuku].judul,
