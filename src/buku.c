@@ -38,7 +38,7 @@ void tambahBuku() {
     printf("Masukkan ID Buku: "); scanf("%s", b.id);
     getchar();
     printf("Masukkan Judul Buku: "); fgets(b.judul, sizeof(b.judul), stdin);
-    strtok(b.judul, "\n");
+    strtok(b.judul, "\n"); ////hapus karakter '\n' dari hasil fgets
     printf("Masukkan Penulis: "); fgets(b.penulis, sizeof(b.penulis), stdin);
     strtok(b.penulis, "\n");
     printf("Masukkan Kategori (Fiksi/NonFiksi/Komik/Majalah/Referensi): "); scanf("%s", b.kategori);
