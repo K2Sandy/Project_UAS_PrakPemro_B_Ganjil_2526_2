@@ -122,8 +122,9 @@ void hapusBuku() {
 
     printf("Masukkan ID Buku yang ingin dihapus: ");
     scanf("%s", idHapus);
-
+    
     int found = 0;
+    // Untuk menulis ulang file tanpa data yang dihapus
     FILE *fw = fopen("data_buku.txt", "w");
     for (int i = 0; i < totalBuku; i++) {
         if (strcmp(daftar[i].id, idHapus) == 0) {
