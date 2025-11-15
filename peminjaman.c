@@ -227,17 +227,31 @@ void kembalikanBuku() {
         return;
     }
 
-    while (fscanf(f, "%[^|]|%[^|]|%[^|]|%[^|]|%[^|]|%d|%d\n",       //  %[^|], %[ untuk scan, ^ = kecuali,
-                                                                    // jadi %[^|] untuk scanf semua kecuali |
-                  daftar[total].id_pinjam,
-                  daftar[total].id_anggota,
-                  daftar[total].id_buku,
-                  daftar[total].tgl_pinjam,
-                  daftar[total].tgl_kembali,
-                  &daftar[total].denda,
-                  &daftar[total].status) != EOF) {
-        total++;
-        if (total >= 200) break; // safety
+        //versi one liner lebih simpel tapi ribet
+        /*while (fscanf(f, "%[^|]|%[^|]|%[^|]|%[^|]|%[^|]|%d|%d\n",     
+                    daftar[total].id_pinjam,
+                    daftar[total].id_anggota,
+                    daftar[total].id_buku,
+                    daftar[total].tgl_pinjam,
+                    daftar[total].tgl_kembali,
+                    &daftar[total].denda,
+                    &daftar[total].status) != EOF) {
+            total++;
+            if (total >= 200) break; // safety } 
+        */
+
+    //lebih bagus readibilitynya
+        while (1) {
+            if (fscanf(f, "%[^|]|", daftar[total].id_pinjam) != 1) break;
+            if (fscanf(f, "%[^|]|", daftar[total].id_anggota) != 1) break;
+            if (fscanf(f, "%[^|]|", daftar[total].id_buku) != 1) break;
+            if (fscanf(f, "%[^|]|", daftar[total].tgl_pinjam) != 1) break;
+            if (fscanf(f, "%[^|]|", daftar[total].tgl_kembali) != 1) break;
+            if (fscanf(f, "%d|", &daftar[total].denda) != 1) break;
+            if (fscanf(f, "%d\n", &daftar[total].status) != 1) break;
+
+            total++;
+            if (total >= 200) break; // batas maksimal jaga2
     }
     fclose(f);
 
