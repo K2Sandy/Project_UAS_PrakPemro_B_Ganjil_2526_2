@@ -64,6 +64,7 @@ void lihatDaftarBuku() {
     printf("--------------------------------------------------------------------------\n");
     while (fscanf(f, "%[^|]|%[^|]|%[^|]|%[^|]|%d|%d|%d\n",
                   b.id, b.judul, b.penulis, b.kategori, &b.tahun, &b.stok, &b.dipinjam) != EOF) {
+        // Untuk menampilkan data
         printf("%-8s | %-25s | %-20s | %-10s | %-5d | %-5d | %-5d\n",
                b.id, b.judul, b.penulis, b.kategori, b.tahun, b.stok, b.dipinjam);
     }
