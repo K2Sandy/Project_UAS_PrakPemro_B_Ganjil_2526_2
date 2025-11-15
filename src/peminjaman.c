@@ -83,7 +83,7 @@ void pinjamBuku() {
     for (int i = 0; i < totalBuku; i++) {
         if (strcmp(daftar[i].id, idBuku) == 0) {
             found = 1;
-            if (daftar[i].dipinjam <= daftar[i].stok) {
+            if (daftar[i].dipinjam < daftar[i].stok) {
                 daftar[i].dipinjam++;           // update jumlah buku yang dipinjam, biar bisa dibandingkan nntik sama stok buku yang disediakan
 
                 // Simpan perubahan ke file
