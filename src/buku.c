@@ -195,7 +195,7 @@ void editBuku() {
         return;
     }
 
-    // Tulis ulang semua buku ke file
+    // Untuk menulis ulang semua buku ke file
     FILE *fw = fopen("data_buku.txt", "w");
     for (int i = 0; i < totalBuku; i++) {
         fprintf(fw, "%s|%s|%s|%s|%d|%d|%d\n",
