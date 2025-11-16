@@ -1,7 +1,7 @@
-# 📚 Sistem Peminjaman Buku – Perpustakaan Mini
+# 📚 Sistem Perpustakaan Mini
 
-Repository ini berisi **Project Ujian Akhir Semester (UAS)** untuk mata kuliah **Praktikum Pemrograman B 2025/2026**, dikerjakan oleh **Kelompok 2**.
-Project ini mengimplementasikan **Sistem Peminjaman Buku Perpustakaan Mini** menggunakan bahasa **C**, yang berfungsi untuk mengelola data buku, anggota, peminjaman, pengembalian, serta perhitungan denda keterlambatan secara otomatis.
+Repository ini berisi **Proyek Ujian Akhir Semester (UAS)** untuk mata kuliah **Praktikum Pemrograman B 2025/2026**, dikerjakan oleh **Kelompok 2**.
+Project ini mengimplementasikan **Sistem Peminjaman Buku Perpustakaan Mini** menggunakan bahasa **C**, yang berfungsi untuk mengelola data buku, anggota, peminjaman, pengembalian, login admin serta perhitungan denda keterlambatan secara otomatis.
 
 Seluruh data pada sistem disimpan ke file eksternal berformat **.txt** secara modular.
 
