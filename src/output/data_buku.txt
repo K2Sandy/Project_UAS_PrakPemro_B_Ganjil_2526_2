@@ -1,0 +1,92 @@
+010001|The Great Gatsby|F. Scott Fitzgerald|01 - Fiksi Umum|1925|2|0
+010002|Catch-22|Joseph Heller|01 - Fiksi Umum|1961|2|0
+010003|Catcher in Rye|J.D. Salinger|01 - Fiksi Umum|1951|2|0
+010004|Lord of Flies|William Golding|01 - Fiksi Umum|1954|2|0
+010005|The Hobbit|J.R.R. Tolkien|01 - Fiksi Umum|1937|2|0
+020001|Harry Potter 1|J.K. Rowling|02 - Fiksi Anak & Remaja|1997|2|0
+020002|Charlotte's Web|E.B. White|02 - Fiksi Anak & Remaja|1952|2|0
+020003|Percy Jackson 1|Rick Riordan|02 - Fiksi Anak & Remaja|2005|2|0
+020004|Lion, Witch, Wardrobe|C.S. Lewis|02 - Fiksi Anak & Remaja|1950|2|0
+020005|Anne of Green|L.M. Montgomery|02 - Fiksi Anak & Remaja|1908|2|0
+030001|Naruto Vol.1|Masashi Kishimoto|03 - Komik & Manga|1999|2|0
+030002|One Piece Vol.1|Eiichiro Oda|03 - Komik & Manga|1997|2|0
+030003|Dragon Ball 1|Akira Toriyama|03 - Komik & Manga|1984|2|0
+030004|Attack on Titan 1|Hajime Isayama|03 - Komik & Manga|2009|2|0
+030005|My Hero 1|Kohei Horikoshi|03 - Komik & Manga|2014|2|0
+040001|Brief History of Time|Stephen Hawking|04 - Sains & Teknologi|1988|2|0
+040002|Cosmos|Carl Sagan|04 - Sains & Teknologi|1980|2|0
+040003|Selfish Gene|Richard Dawkins|04 - Sains & Teknologi|1976|2|0
+040004|Silent Spring|Rachel Carson|04 - Sains & Teknologi|1962|2|0
+040005|Guns Germs Steel|Jared Diamond|04 - Sains & Teknologi|1997|2|0
+050001|Principia|Isaac Newton|05 - Matematika & Statistik|1687|2|0
+050002|Intro to Prob|Dimitri Bertsekas|05 - Matematika & Statistik|2002|2|0
+050003|Art of Stats|David Spiegelhalter|05 - Matematika & Statistik|2019|2|0
+050004|Freakonomics|Levitt & Dubner|05 - Matematika & Statistik|2005|2|0
+050005|How Not Wrong|Jordan Ellenberg|05 - Matematika & Statistik|2014|2|0
+060001|Iqtisaduna|Muhammad Baqir al-Sadr|06 - Ekonomi & Bisnis|1982|2|0
+060002|Wealth of Nations|Adam Smith|06 - Ekonomi & Bisnis|1776|2|0
+060003|General Theory|John Keynes|06 - Ekonomi & Bisnis|1936|2|0
+060004|Affluent Society|John Galbraith|06 - Ekonomi & Bisnis|1958|2|0
+060005|Dead Economists|Todd Buchholz|06 - Ekonomi & Bisnis|1989|2|0
+060006|Human Action|Ludwig von Mises|06 - Ekonomi & Bisnis|1949|2|0
+070001|Common Law|Oliver Holmes|07 - Hukum|1881|2|0
+070002|Commentaries|William Blackstone|07 - Hukum|1765|2|0
+070003|Law 101|Jay Feinman|07 - Hukum|2003|2|0
+070004|Study of Law|A.V. Dicey|07 - Hukum|1885|2|0
+070005|Constitutional Law|Erwin Chemerinsky|07 - Hukum|2001|2|0
+080001|Servile State|Hilaire Belloc|08 - Sosial & Politik|1912|2|0
+080002|The Prince|Niccolò Machiavelli|08 - Sosial & Politik|1532|2|0
+080003|Brave New World|Aldous Huxley|08 - Sosial & Politik|1932|2|0
+080004|Social Contract|Jean Rousseau|08 - Sosial & Politik|1762|2|0
+090001|Guns Germs Steel|Jared Diamond|09 - Sejarah & Budaya|1997|2|0
+090002|Sapiens|Yuval Harari|09 - Sejarah & Budaya|2011|2|0
+090003|People's History|Howard Zinn|09 - Sejarah & Budaya|1980|2|0
+090004|Silk Roads|Peter Frankopan|09 - Sejarah & Budaya|2015|2|0
+100001|Pedagogy Oppressed|Paulo Freire|10 - Pendidikan|1968|2|0
+100002|Experience Edu|John Dewey|10 - Pendidikan|1938|2|0
+100003|Montessori Method|Maria Montessori|10 - Pendidikan|1912|2|0
+100004|How Children Learn|John Holt|10 - Pendidikan|1967|2|0
+110001|Long Walk Freedom|Nelson Mandela|11 - Biografi|1994|2|0
+110002|Steve Jobs|Walter Isaacson|11 - Biografi|2011|2|0
+110003|Diary Young Girl|Anne Frank|11 - Biografi|1947|2|0
+110004|Einstein Life|Walter Isaacson|11 - Biografi|2007|2|0
+120001|Mere Christianity|C.S. Lewis|12 - Agama|1952|2|0
+120002|Case for Christ|Lee Strobel|12 - Agama|1998|2|0
+120003|Purpose Driven Life|Rick Warren|12 - Agama|2002|2|0
+120004|Cost of Discipleship|Dietrich Bonhoeffer|12 - Agama|1959|2|0
+130001|Outliers|Malcolm Gladwell|13 - Psikologi|2008|2|0
+130002|Thinking Fast Slow|Daniel Kahneman|13 - Psikologi|2011|2|0
+130003|Man's Search|Viktor Frankl|13 - Psikologi|1946|2|0
+130004|Influence|Robert Cialdini|13 - Psikologi|1984|2|0
+130005|Power of Habit|Charles Duhigg|13 - Psikologi|2012|2|0
+140001|Pride Prejudice|Jane Austen|14 - Novel|1813|3|0
+140002|Moby-Dick|Herman Melville|14 - Novel|1851|6|0
+140003|Animal Farm|George Orwell|14 - Novel|1945|2|0
+140004|To Kill Mockingbird|Harper Lee|14 - Novel|1960|2|0
+140005|1984|George Orwell|14 - Novel|1949|2|0
+140006|Crime Punishment|Fyodor Dostoevsky|14 - Novel|1866|2|0
+150001|Encyclopaedia|Britannica Editors|15 - Ensiklopedia|1768|2|0
+150002|World Book|World Book, Inc.|15 - Ensiklopedia|1917|2|0
+150003|World History|Smithsonian Institution|15 - Ensiklopedia|2001|2|0
+150004|Oxford Dictionary|Oxford University Press|15 - Ensiklopedia|1884|2|0
+160001|Emperor Maladies|Siddhartha Mukherjee|16 - Kesehatan|2010|2|0
+160002|Gray's Anatomy|Henry Gray|16 - Kesehatan|1858|2|0
+160003|Henrietta Lacks|Rebecca Skloot|16 - Kesehatan|2010|2|0
+160004|How Not Die|Michael Greger|16 - Kesehatan|2015|2|0
+170001|Moneyball|Michael Lewis|17 - Olahraga|2003|4|0
+170002|Open|Andre Agassi|17 - Olahraga|2009|2|0
+170003|Inner Game Tennis|W. Timothy Gallwey|17 - Olahraga|1974|2|0
+170004|Born to Run|Christopher McDougall|17 - Olahraga|2009|2|0
+180001|Story of Art|E.H. Gombrich|18 - Seni & Desain|1950|1|0
+180002|Ways of Seeing|John Berger|18 - Seni & Desain|1972|2|0
+180003|Steal Like Artist|Austin Kleon|18 - Seni & Desain|2012|2|0
+180004|Interaction Color|Josef Albers|18 - Seni & Desain|1963|2|0
+190001|Mastering French|Julia Child|19 - Memasak|1961|2|0
+190002|Salt Fat Acid Heat|Samin Nosrat|19 - Memasak|2017|2|0
+190003|Joy of Cooking|Irma Rombauer|19 - Memasak|1931|2|0
+190004|How Cook Everything|Mark Bittman|19 - Memasak|1998|2|0
+200001|NatGeo Special|National Geographic|20 - Majalah|1888|2|0
+200002|Time 100|Time Inc.|20 - Majalah|2020|2|0
+200003|The Economist|The Economist Group|20 - Majalah|1843|2|0
+200004|Sci American|Scientific American Inc.|20 - Majalah|1845|2|0
+
