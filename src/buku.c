@@ -151,10 +151,12 @@ void lihatDaftarBuku() {
             printf("%-8s | %-25s | %-20s | %-10s | %-5d | %-5d | %-5d\n",
                b.id, b.judul, b.penulis, b.kategori, b.tahun, b.stok, b.dipinjam);
         }
+    }
     fclose(f);
 
-    if (!found)
+    if (!found){
         printf("Tidak ada buku dalam kategori ini.\n");
+    }
 }
 
 void cariBuku() {
