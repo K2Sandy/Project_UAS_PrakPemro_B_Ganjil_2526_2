@@ -31,7 +31,7 @@ void menuUtilitas(){
 
 //ini fungsi untuk tambah akun baru
 void tambahAkun(){
-    login log;
+    Login log;
     FILE *f; 
     f = fopen("data_login.txt", "a"); 
     if (!f){
@@ -60,7 +60,7 @@ void ubahPassword(){
     }
 
     //sebelum ubah passwordnya, kita baca dulu semua akun yang ada
-    login daftar[100]; // kita asumsikan ada 100 akun
+    Login daftar[100]; // kita asumsikan ada 100 akun
     int i = 0
     while(fscanf(f, "%[^|]|%s\n", daftar[i].username, daftar[i].password) != EOF){
         i++;
@@ -159,9 +159,9 @@ void setDurasiMaksimal(){
     printf("Durasi maksimal peminjaman berhasil diubah menjadi %d hari\n", durasiMaksimal);
 }
 
-void setDendaPerhari() {
+void setDendaPerHari() {
     printf("Denda per hari saat ini: %d", dendaPerhari);
-    printf("Maukkan denda per hari baru: ");
+    printf("Masukkan denda per hari baru: ");
     int val;
     scanf("%d", &val );
     if (val < 0) {
@@ -169,5 +169,5 @@ void setDendaPerhari() {
         return;
     }
     dendaPerhari = val;
-    printf("Denda per hari berhasil diubah menjadi %d\n", dendaPerhari)
+    printf("Denda per hari berhasil diubah menjadi %d\n", dendaPerhari);
 }
