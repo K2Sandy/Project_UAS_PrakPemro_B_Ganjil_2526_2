@@ -24,7 +24,7 @@ static const char *DAFTAR_KATEGORI[20] = {
 };
 //  ini untuk buat id otomatis, supaya user tidak asal inoput
 static void generateIdBuku(char *outId, int kodeKategori) {
-    FILE *f = fopen("data_buku.txt", "r");
+    FILE *f = fopen("output/data_buku.txt", "r");
     int maxUrut = 0;
 
     if (f) {
@@ -106,7 +106,7 @@ void tambahBuku() {
     printf("Masukkan Stok Buku: "); scanf("%d", &b.stok);
     b.dipinjam = 0;
 
-   FILE *f = fopen("data_buku.txt", "a");
+   FILE *f = fopen("output/data_buku.txt", "a");
     fprintf(f, "%s|%s|%s|%s|%d|%d|%d\n",
             b.id, b.judul, b.penulis, b.kategori,
             b.tahun, b.stok, b.dipinjam);
@@ -133,7 +133,7 @@ void lihatDaftarBuku() {
 
     Buku b;
     int found = 0; 
-    FILE *f = fopen("data_buku.txt", "r");
+    FILE *f = fopen("output/data_buku.txt", "r");
     if (!f) {
         printf("Belum ada data buku.\n");
         return;
@@ -162,7 +162,7 @@ void lihatDaftarBuku() {
 void cariBuku() {
     char keyword[100];
     Buku b;
-    FILE *f = fopen("data_buku.txt", "r");
+    FILE *f = fopen("output/data_buku.txt", "r");
     if (!f) {
         printf("File data_buku.txt tidak ditemukan.\n");
         return;
@@ -190,7 +190,7 @@ void hapusBuku() {
     Buku daftar[100];
     int totalBuku = 0;
 
-    FILE *f = fopen("data_buku.txt", "r");
+    FILE *f = fopen("output/data_buku.txt", "r");
     if (!f) { printf("Belum ada data buku.\n"); return; }// pastikan file dibuka
 
     // Baca semua buku ke memory
@@ -211,7 +211,7 @@ void hapusBuku() {
     
     int found = 0;
     // Untuk menulis ulang file tanpa data yang dihapus
-    FILE *fw = fopen("data_buku.txt", "w");
+    FILE *fw = fopen("output/data_buku.txt", "w");
     for (int i = 0; i < totalBuku; i++) {
         if (strcmp(daftar[i].id, idHapus) == 0) {
             found = 1; // skip buku ini (jadi terhapus)
@@ -234,7 +234,7 @@ void editBuku() {
     Buku daftar[100];
     int totalBuku = 0;
 
-    FILE *f = fopen("data_buku.txt", "r");
+    FILE *f = fopen("output/data_buku.txt", "r");
     if (!f) { printf("Belum ada data buku.\n"); return; }
 
     // Untuk membaca seluruh data buku
@@ -285,7 +285,7 @@ void editBuku() {
     }
 
     // Untuk menulis ulang semua buku ke file
-    FILE *fw = fopen("data_buku.txt", "w");
+    FILE *fw = fopen("output/data_buku.txt", "w");
     for (int i = 0; i < totalBuku; i++) {
         fprintf(fw, "%s|%s|%s|%s|%d|%d|%d\n",
                 daftar[i].id, daftar[i].judul, daftar[i].penulis,
