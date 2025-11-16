@@ -2,7 +2,7 @@
 
 int durasiMaksimal = 7; // ini defaultnya tujuh hari
 int dendaPerhari = 1000; // default juga 1000
-0
+
 void menuUtilitas(){
     int pilihan;
     do {
@@ -112,14 +112,14 @@ void rankingBuku(){
                     daftar[totalBuku].penulis,
                     daftar[totalBuku].kategori,
                     &daftar[totalBuku].tahun,
-                    &daftar[totalBuku].stok
+                    &daftar[totalBuku].stok,
                     &daftar[totalBuku].dipinjam) != EOF) {
             totalBuku++;
     }
     fclose(f);
 
     // nah sekarang kita sorting descending berdasarkan jumlah dipinjam
-    buku temp;
+    Buku temp;
     int i, j;
     
     for (i = 0; i < totalBuku - 1; i++){
@@ -127,8 +127,7 @@ void rankingBuku(){
             if (daftar[i].dipinjam < daftar[j].dipinjam) {
                 temp = daftar[i];
                 daftar[i] = daftar[j];
-                daftar[j] = temp
-            }
+                daftar[j] = temp;
         }
     }
 
@@ -138,7 +137,7 @@ void rankingBuku(){
     printf("Rank | ID Buku | Judul | Penulis | Jumlah Dipinjam\n");
     printf("--------------------------------------------------\n");
     for  (int i = 0; i < totalBuku; i++){
-        printf("%d | %s | %s | %s | %d\n", i + 1
+        printf("%d | %s | %s | %s | %d\n", i + 1,
                 daftar[i].id,
                 daftar[i].judul,
                 daftar[i].penulis,

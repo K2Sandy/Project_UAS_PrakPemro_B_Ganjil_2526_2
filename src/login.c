@@ -2,7 +2,7 @@
 
 //ini fungsi untuk login admin
 int loginAdmin() {
-    login log;
+    Login log;
     FILE *f;
     f = fopen("data_login.txt", "r");
     if (!f){
