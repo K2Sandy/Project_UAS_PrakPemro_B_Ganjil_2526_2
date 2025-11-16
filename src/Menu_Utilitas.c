@@ -22,11 +22,11 @@ void menuUtilitas(){
             case 2: ubahPassword(); break;
             case 3: rankingBuku(); break;
             case 4: setDurasiMaksimal(); break;
-            case 5: setDendaPerhari(); break;
+            case 5: setDendaPerHari(); break;
             case 0: printf("Kembali ke menu utama...\n"); break;
             default: printf("Pilihan tidak valid! \n");
         }
-    } while (pilihan != 0)
+    } while (pilihan != 0);
 }
 
 //ini fungsi untuk tambah akun baru
@@ -61,7 +61,7 @@ void ubahPassword(){
 
     //sebelum ubah passwordnya, kita baca dulu semua akun yang ada
     Login daftar[100]; // kita asumsikan ada 100 akun
-    int i = 0
+    int i = 0;
     while(fscanf(f, "%[^|]|%s\n", daftar[i].username, daftar[i].password) != EOF){
         i++;
     }
@@ -128,6 +128,7 @@ void rankingBuku(){
                 temp = daftar[i];
                 daftar[i] = daftar[j];
                 daftar[j] = temp;
+            }
         }
     }
 
