@@ -59,5 +59,6 @@ void lihatAnggota() {
 //menampilkan data anggota yang sudah diinput user
     }
     fclose(f);
+  //menutup file dan menghindari pembocoran memori
 }
 
