@@ -30,7 +30,8 @@ void menuUtilitas(){
 //ini fungsi untuk tambah akun baru
 void tambahAkun(){
     login log;
-    FILE *f = fopen("data_login.txt", "a"); //
+    FILE *f; 
+    f = fopen("data_login.txt", "a"); 
     if (!f){
         printf("File tidak ditemukan!\n");
         return;
@@ -49,7 +50,8 @@ void ubahPassword(){
     char username_dicari[50], passwordBaru[50];
     int ditemukan = 0;
 
-    FILE *f = fopen("data_login.txt", "r");
+    FILE *f;
+    f = fopen("data_login.txt", "r");
     if (!f){
         printf("File tidak ditemukan!\n");
         return;
@@ -82,10 +84,62 @@ void ubahPassword(){
     }
 
     //nah sekarang kita tulis ulang semua akunnya
-    FILE *fw = fopen("data_login.txt", "w");
+    FILE *fw;
+    f w= fopen("data_login.txt", "w");
     for (i = 0; i < totalAkun; i++){
         fprintf(fw, "%s|%s\n", daftar[i].username, daftar[i].password);
     } 
     fclose(fw);
     printf("password berhasil diubah!\n");
+}
+
+void rankingBuku(){
+    Buku daftar[100];
+    int totalBuku = 0;
+
+    FILE *f;
+    f = fopen("data_buku.txt", "r");
+    if (!f) {
+        printf("beelum ada data buku.\n"); 
+        return;
+    }
+
+    while (fscanf(f, "%[^|] %[^|] %[^|] %[^|] %d %d %d\n",
+                    daftar[totalBuku].id,
+                    daftar[totalBuku].judul,
+                    daftar[totalBuku].penulis,
+                    daftar[totalBuku].kategori,
+                    &daftar[totalBuku].tahun,
+                    &daftar[totalBuku].stok
+                    &daftar[totalBuku].dipinjam) != EOF) {
+            totalBuku++;
+    }
+    fclose(f);
+
+    // nah sekarang kita sorting descending berdasarkan jumlah dipinjam
+    buku temp;
+    int i, j;
+    
+    for (i = 0; i < totalBuku - 1; i++){
+        for (j = i; j < totalBuku; j++){
+            if (daftar[i].dipinjam < daftar[j].dipinjam) {
+                temp = daftar[i];
+                daftar[i] = daftar[j];
+                daftar[j] = temp
+            }
+        }
+    }
+
+    printf("\n================================================\n");
+    printf("\n    RANKING BUKU YANG PALING SERING DIPINJAM    \n");
+    printf("\n================================================\n");
+    printf("Rank | ID Buku | Judul | Penulis | Jumlah Dipinjam\n");
+    printf("--------------------------------------------------\n");
+    for  (int i = 0; i < totalBuku; i++){
+        printf("%d | %s | %s | %s | %d\n", i + 1
+                daftar[i].id,
+                daftar[i].judul,
+                daftar[i].penulis,
+                daftar[i].dipinjam);
+    }
 }
