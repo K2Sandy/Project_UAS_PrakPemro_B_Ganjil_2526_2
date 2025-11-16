@@ -30,7 +30,7 @@ void menuPeminjaman() {
 // fungi untuk Untuk validasi ID Anggota
 int cekIdAnggota(char *idAnggota) {
     Anggota a;
-    FILE *f = fopen("data_anggota.txt", "r");
+    FILE *f = fopen("output/data_anggota.txt", "r");
     if (!f) {
         return 0;               // kalo misalnya blm ada data anggota nya
     }
@@ -63,7 +63,7 @@ void pinjamBuku() {
 
 
     // Baca data buku ke memory
-    FILE *fb = fopen("data_buku.txt", "r");
+    FILE *fb = fopen("output/data_buku.txt", "r");
     if (!fb) { printf("Belum ada data buku.\n"); return; }
     while (1) {                             //masukin data ke dtruct biar bsa dicek smua buku yg bsa dipinjam
         if (fscanf(fb, "%[^|]|", daftar[totalBuku].id) != 1) break;
@@ -91,7 +91,7 @@ void pinjamBuku() {
                 daftar[i].dipinjam++;           // update jumlah buku yang dipinjam, biar bisa dibandingkan nntik sama stok buku yang disediakan
 
                 // Simpan perubahan ke file
-                FILE *fw = fopen("data_buku.txt", "w");
+                FILE *fw = fopen("output/data_buku.txt", "w");
                 for (int j = 0; j < totalBuku; j++) {
                     fprintf(fw, "%s|%s|%s|%s|%d|%d|%d\n",       //pakek 1 liner biar efisien
                             daftar[j].id, daftar[j].judul, daftar[j].penulis,
@@ -102,7 +102,7 @@ void pinjamBuku() {
 
                 // Catat peminjaman
                 Peminjaman p;
-                FILE *fp = fopen("data_peminjaman.txt", "a");
+                FILE *fp = fopen("output/data_peminjaman.txt", "a");
                 printf("ID Peminjaman: "); scanf("%s", p.id_pinjam);
                 strcpy(p.id_anggota, idAnggota);
                 strcpy(p.id_buku, idBuku);
@@ -166,7 +166,7 @@ void riwayatPeminjamanAnggota() {
     Peminjaman daftar[100]; // asumsi maksimal 100 peminjaman
     int total = 0;
 
-    FILE *f = fopen("data_peminjaman.txt", "r");
+    FILE *f = fopen("output/data_peminjaman.txt", "r");
     if (!f) {
         printf("Belum ada data peminjaman.\n");
         return;
@@ -225,7 +225,7 @@ void kembalikanBuku() {
     // Baca semua peminjaman
     Peminjaman daftar[200];
     int total = 0;
-    FILE *f = fopen("data_peminjaman.txt", "r");
+    FILE *f = fopen("output/data_peminjaman.txt", "r");
     if (!f) {
         printf("Belum ada data peminjaman.\n");
         return;
@@ -339,7 +339,7 @@ void kembalikanBuku() {
     }
 
     // Tulis ulang file data_peminjaman.txt
-    FILE *fw = fopen("data_peminjaman.txt", "w");
+    FILE *fw = fopen("output/data_peminjaman.txt", "w");
     if (!fw) {
         printf("Gagal membuka file data_peminjaman.txt untuk menulis.\n");
         return;
@@ -359,7 +359,7 @@ void kembalikanBuku() {
     // Update data_buku.txt karena bagian dipinjamnya kan kurang 1 jadinya karena udah dibalikin
     Buku bukuList[200];
     int totalBuku = 0;
-    FILE *fb = fopen("data_buku.txt", "r");
+    FILE *fb = fopen("output/data_buku.txt", "r");
     if (fb) {
 
         /* while (fscanf(fb, "%[^|]|%[^|]|%[^|]|%[^|]|%d|%d|%d\n",         //masi perlu perbaikan
@@ -396,7 +396,7 @@ void kembalikanBuku() {
         }
 
         // tulis ulang file buku
-        FILE *fbw = fopen("data_buku.txt", "w");
+        FILE *fbw = fopen("output/data_buku.txt", "w");
         if (fbw) {
             for (int i = 0; i < totalBuku; i++) {
                 fprintf(fbw, "%s|%s|%s|%s|%d|%d|%d\n",
