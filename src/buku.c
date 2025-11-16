@@ -47,7 +47,7 @@ static void generateIdBuku(char *outId, int kodeKategori) {
 void menuBuku() {
     int pilihan;
     do {  //untuk memulai loop yang pasti dijalankan minimal 1 kali.
-        printf("\n================================\n");
+        printf("\n\n\n==================================\n");
         printf("             MENU BUKU            \n");
         printf("==================================\n");
         printf("1. Tambah Buku\n");
@@ -56,7 +56,7 @@ void menuBuku() {
         printf("4. Edit Buku\n");
         printf("5. Hapus Buku\n");
         printf("0. Kembali\n");
-        printf("================================\n");
+        printf("==================================\n");
 
         printf("Pilihan: ");
         scanf("%d", &pilihan);
@@ -136,20 +136,22 @@ void lihatDaftarBuku() {
     FILE *f = fopen("data_buku.txt", "r");
     if (!f) {
         printf("Belum ada data buku.\n");
-        return;
+        return; 
     }
     
 
     // untuk print header tabel 
     printf("\n===== DAFTAR BUKU: %s =====\n", kategoriDipilih);
+    printf("ID      | Judul                                         | Penulis              | Kategori                     | Tahun | Stok  | Pinjam\n");
+    printf("--------+-----------------------------------------------+----------------------+------------------------------+-------+-------+-------\n");
     
     while (fscanf(f, "%[^|]|%[^|]|%[^|]|%[^|]|%d|%d|%d\n",
-                  b.id, b.judul, b.penulis, b.kategori, &b.tahun, &b.stok, &b.dipinjam) != EOF) {
-        // Untuk menampilkan data
+            b.id, b.judul, b.penulis, b.kategori, &b.tahun, &b.stok, &b.dipinjam) != EOF){
+
         if (strcmp(b.kategori, kategoriDipilih) == 0) {
             found = 1;
-            printf("%-7s | %-25s | %-20s | %-10s | %-5d | %-5d | %-5d\n",
-               b.id, b.judul, b.penulis, b.kategori, b.tahun, b.stok, b.dipinjam);
+            printf("%-7s | %-45s | %-20s | %-28s | %-5d | %-5d | %-5d\n",
+            b.id, b.judul, b.penulis, b.kategori, b.tahun, b.stok, b.dipinjam);
         }
     }
     fclose(f);

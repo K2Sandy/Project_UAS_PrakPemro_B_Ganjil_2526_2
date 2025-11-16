@@ -1,0 +1,20 @@
+010001|1984|George Orwell |01 - Fiksi Umum|1949|10|0
+010002|To Kill a Mockingbird|Harper Lee|01 - Fiksi Umum|1960|30|0
+030001|Naruto|Masashi Khisimoto|03 - Komik & Manga|1999|1000|0
+030002|Attack on Titan|Hajime Isayama|03 - Komik & Manga|1980|1000|0
+040001|A Brief History of Time|Stephen Hawking|04 - Sains & Teknologi|1988|20|0
+040002|Cosmos|Carl Sagan|04 - Sains & Teknologi|1980|15|0
+050001|The Man Who Knew Infinity|Robert Kanigel|05 - Matematika & Statistik|1991|25|0
+050002|How Not to Be Wrong|Jordan Ellenberg|05 - Matematika & Statistik|2014|13|0
+060001|Rich Dad Poor Dad|Robert T.Kiyosaki|06 - Ekonomi & Bisnis|1997|200|0
+060002|The Learn Startup|Eric Ries|06 - Ekonomi & Bisnis|2011|90|0
+070001|The Rule of Law|Tom Bingham|07 - Hukum|2010|50|0
+070002|International Law|Malcolm N. Shaw|07 - Hukum|1977|30|0
+080001|The  Prince|Niccol• Machiavelli|08 - Sosial & Politik|1532|10|0
+080002|Homo Deus|Yuval Noah Harari|08 - Sosial & Politik|2015|30|0
+090001|Sapiens |Yuval Noah Harari |09 - Sejarah & Budaya|2011|40|0
+090002|The Silk Roads |Peter Frankopan|09 - Sejarah & Budaya|2015|45|0
+100001|Pedagogy of the Oppressed |Paulo Freire|10 - Pendidikan|1968|30|0
+100002|Mindset |Carol S. Dweck|10 - Pendidikan|2006|39|0
+020001|Harry Potter|J.K. Rowling|02 - Fiksi Anak & Remaja|1997|100|0
+020002|The Hunger Games |Suzanne Collins|02 - Fiksi Anak & Remaja|2008|100|0
