@@ -6,9 +6,9 @@ int dendaPerhari = 1000; // default juga 1000
 void menuUtilitas(){
     int pilihan;
     do {
-        printf("\n=========================\n");
-        printf("\n      MENU UTILITAS      \n");
-        printf("\n ========================\n");
+        printf("\n=========================");
+        printf("\n      MENU UTILITAS      ");
+        printf("\n========================\n");
         printf("1.Tambah Akun Admin\n");
         printf("2. Ubah Password\n");
         printf("3. Lihat Ranking Buku\n");
