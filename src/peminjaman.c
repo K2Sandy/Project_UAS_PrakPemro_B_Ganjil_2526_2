@@ -4,11 +4,15 @@
 void menuPeminjaman() {
     int pilihan;
     do {
-        printf("\n=== MENU PEMINJAMAN ===\n");
+        printf("\n================================\n");
+        printf("          MENU PEMINJAMAN         \n");
+        printf("=================================\n");
         printf("1. Pinjam Buku\n");
         printf("2. Kembalikan Buku\n");
         printf("3. Riwayat Peminjaman Anggota\n");
         printf("0. Kembali\n");
+        printf("================================\n");
+
         printf("Pilihan: ");
         scanf("%d", &pilihan);
         getchar();

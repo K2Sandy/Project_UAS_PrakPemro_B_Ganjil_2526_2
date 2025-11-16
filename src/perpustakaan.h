@@ -6,12 +6,12 @@
 #include <string.h>
 #include <time.h>
 
-// ===================== STRUCT DATA =====================
+// Struct Struct yg digunakan dalam tiap fungsi
 typedef struct {
     char id[10];
     char judul[100];
     char penulis[100];
-    char kategori[30]; // Fiksi, Non-Fiksi, Komik, Majalah, Referensi
+    char kategori[30]; // fiksi, nonFiksi, komik, majalah, referensi
     int tahun;
     int stok;
     int dipinjam;
@@ -31,7 +31,7 @@ typedef struct {
     char tgl_pinjam[20];
     char tgl_kembali[20];
     int denda;
-    int status; // 0 = belum kembali, 1 = sudah kembali
+    int status;             // 0 = belum kembali, 1 = sudah kembali
 } Peminjaman;
 
 typedef struct {
@@ -39,7 +39,7 @@ typedef struct {
     char password[50];
 } Login;
 
-// ===================== PROTOTYPE FUNGSI =====================
+// Deklarasi fungsi agar bisa kesambung antara tiap file c
 // main.c
 void tampilkanMenuUtama();
 
@@ -67,8 +67,9 @@ int cekIdAnggota(char *idAnggota);
 int loginAdmin();
 
 // utilitas.c
-extern int durasiMaksimal;
-extern int dendaPerHari; // denda per hari keterlambatan
+
+extern int durasiMaksimal;             //variabel yang ada di utilitas.c dan akan dipakai lagi di file lain
+extern int dendaPerHari;             // denda per hari keterlambatan
 void menuUtilitas();
 void tambahAkun();
 void ubahPassword();

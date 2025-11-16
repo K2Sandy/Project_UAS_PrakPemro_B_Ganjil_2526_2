@@ -3,13 +3,17 @@
 void menuBuku() {
     int pilihan;
     do {  //untuk memulai loop yang pasti dijalankan minimal 1 kali.
-        printf("\n=== MENU BUKU ===\n");
+        printf("\n================================\n");
+        printf("             MENU BUKU            \n");
+        printf("==================================\n");
         printf("1. Tambah Buku\n");
         printf("2. Lihat Daftar Buku\n");
         printf("3. Cari Buku\n");
         printf("4. Edit Buku\n");
         printf("5. Hapus Buku\n");
         printf("0. Kembali\n");
+        printf("================================\n");
+
         printf("Pilihan: ");
         scanf("%d", &pilihan);
         getchar();
@@ -41,7 +45,7 @@ void tambahBuku() {
     strtok(b.judul, "\n"); ////hapus karakter '\n' dari hasil fgets
     printf("Masukkan Penulis: "); fgets(b.penulis, sizeof(b.penulis), stdin);
     strtok(b.penulis, "\n");
-    printf("Masukkan Kategori (Fiksi/NonFiksi/Komik/Majalah/Referensi): "); scanf("%s", b.kategori);
+    printf("Masukkan Kategori (Fiksi/NonFiksi/Komik/Majalah/Referensi): "); scanf("%s", b.kategori); // Meminta user memasukkan kategori buku dan menyimpannya ke variabel b.kategori
     printf("Masukkan Tahun Terbit: "); scanf("%d", &b.tahun);
     printf("Masukkan Stok Buku: "); scanf("%d", &b.stok);
     b.dipinjam = 0;
@@ -105,7 +109,7 @@ void hapusBuku() {
     int totalBuku = 0;
 
     FILE *f = fopen("data_buku.txt", "r");
-    if (!f) { printf("Belum ada data buku.\n"); return; }
+    if (!f) { printf("Belum ada data buku.\n"); return; }// pastikan file dibuka
 
     // Baca semua buku ke memory
     while (fscanf(f, "%[^|]|%[^|]|%[^|]|%[^|]|%d|%d|%d\n",
