@@ -1,5 +1,49 @@
 #include "perpustakaan.h"
+//ini untuk konfigurasi kategorinya
+static const char *DAFTAR_KATEGORI[20] = {
+    "01 - Fiksi Umum",
+    "02 - Fiksi Anak & Remaja",
+    "03 - Komik & Manga",
+    "04 - Sains & Teknologi",
+    "05 - Matematika & Statistik",
+    "06 - Ekonomi & Bisnis",
+    "07 - Hukum",
+    "08 - Sosial & Politik",
+    "09 - Sejarah & Budaya",
+    "10 - Pendidikan",
+    "11 - Biografi",
+    "12 - Agama",
+    "13 - Psikologi",
+    "14 - Novel",
+    "15 - Ensiklopedia",
+    "16 - Kesehatan",
+    "17 - Olahraga",
+    "18 - Seni & Desain",
+    "19 - Memasak",
+    "20 - Majalah"
+};
+//  ini untuk buat id otomatis, supaya user tidak asal inoput
+static void generateIdBuku(char *outId, int kodeKategori) {
+    FILE *f = fopen("data_buku.txt", "r");
+    int maxUrut = 0;
 
+    if (f) {
+        Buku b;
+        while (fscanf(f, "%[^|]|%[^|]|%[^|]|%[^|]|%d|%d|%d\n",
+                       b.id, b.judul, b.penulis, b.kategori,
+                       &b.tahun, &b.stok, &b.dipinjam) != EOF) {
+            int kk = (b.id[0] - '0') * 10 + (b.id[1] - '0');
+            if (kk == kodeKategori) {
+                int urut = atoi(b.id + 2);
+                if (urut > maxUrut) maxUrut = urut;
+            }
+        }
+        fclose(f);
+    }
+
+    int next = maxUrut + 1;
+    sprintf(outId, "%02d%04d", kodeKategori, next);
+}
 void menuBuku() {
     int pilihan;
     do {  //untuk memulai loop yang pasti dijalankan minimal 1 kali.
@@ -33,26 +77,42 @@ void menuBuku() {
 
 void tambahBuku() { 
     Buku b;
-    FILE *f = fopen("data_buku.txt", "a");
-    if (!f) {
-        printf("Gagal membuka file data_buku.txt\n");
+
+    printf("\n=== TAMBAH BUKU ===\n");
+    printf("Pilih Kategori (1-20):\n");
+    for (int i = 0; i < 20; i++) printf("%s\n", DAFTAR_KATEGORI[i]);
+
+    int pilih;
+    printf("Masukkan nomor kategori: ");
+    scanf("%d", &pilih);
+    getchar();
+
+    if (pilih < 1 || pilih > 20) {
+        printf("Kategori tidak valid!\n");
         return;
     }
-    // Untuk menginput data buku
-    printf("Masukkan ID Buku: "); scanf("%s", b.id);
-    getchar();
-    printf("Masukkan Judul Buku: "); fgets(b.judul, sizeof(b.judul), stdin);
-    strtok(b.judul, "\n"); ////hapus karakter '\n' dari hasil fgets
-    printf("Masukkan Penulis: "); fgets(b.penulis, sizeof(b.penulis), stdin);
+
+     strcpy(b.kategori, DAFTAR_KATEGORI[pilih - 1]);
+    generateIdBuku(b.id, pilih);
+
+    printf("Masukkan Judul Buku: ");
+    fgets(b.judul, sizeof(b.judul), stdin);
+    strtok(b.judul, "\n"); //hapus karakter '\n' dari hasil fgets
+
+    printf("Masukkan Penulis: ");
+    fgets(b.penulis, sizeof(b.penulis), stdin);
     strtok(b.penulis, "\n");
-    printf("Masukkan Kategori (Fiksi/NonFiksi/Komik/Majalah/Referensi): "); scanf("%s", b.kategori); // Meminta user memasukkan kategori buku dan menyimpannya ke variabel b.kategori
     printf("Masukkan Tahun Terbit: "); scanf("%d", &b.tahun);
     printf("Masukkan Stok Buku: "); scanf("%d", &b.stok);
     b.dipinjam = 0;
 
-    fprintf(f, "%s|%s|%s|%s|%d|%d|%d\n", b.id, b.judul, b.penulis, b.kategori, b.tahun, b.stok, b.dipinjam);
+   FILE *f = fopen("data_buku.txt", "a");
+    fprintf(f, "%s|%s|%s|%s|%d|%d|%d\n",
+            b.id, b.judul, b.penulis, b.kategori,
+            b.tahun, b.stok, b.dipinjam);
     fclose(f);
-    printf("Buku berhasil ditambahkan!\n");
+
+    printf("Buku berhasil ditambahkan. ID: %s\n", b.id);
 }
 
 void lihatDaftarBuku() {
