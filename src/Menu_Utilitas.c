@@ -6,7 +6,9 @@ int dendaPerhari = 1000; // default juga 1000
 void menuUtilitas(){
     int pilihan;
     do {
-        printf("\n ===- MENU UTILITAS -===\n");
+        printf("\n=========================\n");
+        printf("\n      MENU UTILITAS      \n");
+        printf("\n ========================\n");
         printf("1.Tambah Akun Admin\n");
         printf("2. Ubah Password\n");
         printf("3. Lihat Ranking Buku\n");
@@ -15,7 +17,7 @@ void menuUtilitas(){
         printf("0. kembali Ke Menu Utama\n");
         printf("Pilihan: "); scanf("%d", &pilihan);
 
-        switch (Pilihan) {     //susun ulang fungsi sesuai menu
+        switch (pilihan) {     //susun ulang fungsi sesuai menu
             case 1: tambahAkun(); break;
             case 2: ubahPassword(); break;
             case 3: rankingBuku(); break;
@@ -60,7 +62,7 @@ void ubahPassword(){
     //sebelum ubah passwordnya, kita baca dulu semua akun yang ada
     login daftar[100]; // kita asumsikan ada 100 akun
     int i = 0
-    while(fscanf(f, "%[^|] %s\n", daftar[i].username, daftar[i].password) != EOF){
+    while(fscanf(f, "%[^|]|%s\n", daftar[i].username, daftar[i].password) != EOF){
         i++;
     }
     int totalAkun = i;
@@ -104,7 +106,7 @@ void rankingBuku(){
         return;
     }
 
-    while (fscanf(f, "%[^|] %[^|] %[^|] %[^|] %d %d %d\n",
+    while (fscanf(f, "%[^|]|%[^|]|%[^|]|%[^|]|%d|%d|%d\n",
                     daftar[totalBuku].id,
                     daftar[totalBuku].judul,
                     daftar[totalBuku].penulis,
