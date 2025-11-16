@@ -1,6 +1,6 @@
 #include "perpustakaan.h"
 
-void menuAnggota() {
+void menuAnggota() { //menampilkan menu anggota yang dapat dipilih
     int pilihan;
     do {
         printf("\n==== MENU ANGGOTA ====\n");
@@ -27,7 +27,7 @@ void daftarAnggota() {
         printf("Gagal membuka file data_anggota.txt\n");
         return;
     }
-    printf("Masukkan ID Anggota: "); scanf("%s", a.id);
+    printf("Masukkan ID Anggota: "); scanf("%s", a.id);//menerima input ID anggota dari User
     getchar();
     printf("Nama: "); fgets(a.nama, sizeof(a.nama), stdin); strtok(a.nama, "\n");
     printf("Alamat: "); fgets(a.alamat, sizeof(a.alamat), stdin); strtok(a.alamat, "\n");
