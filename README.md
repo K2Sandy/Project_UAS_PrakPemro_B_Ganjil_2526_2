@@ -66,11 +66,13 @@ Seluruh data pada sistem disimpan ke file eksternal berformat **.txt** secara mo
 
 # 👥 Kelompok 2
 
-* **Ibnul Jawzy**                       NPM: 250810701100021
-* **Muhammad Albharaka Putrosandy**     NPM: 250810701100022
-* **Muhammad Irfan**                    NPM: 250810701100023
-* **Putri Rahmatul Ulya**               NPM: 250810701100030
-* **Fitri Br Manik**                    NPM: 250810701100032
+| Nama                         | NPM             |
+|-------------------------------|----------------|
+| Ibnul Jawzy                  | 250810701100021 |
+| Muhammad Albharaka Putrosandy | 250810701100022 |
+| Muhammad Irfan               | 250810701100023 |
+| Putri Rahmatul Ulya          | 250810701100030 |
+| Fitri Br Manik               | 250810701100032 |
 
 ---
 
