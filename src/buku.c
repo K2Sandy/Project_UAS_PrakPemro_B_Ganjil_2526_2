@@ -3,13 +3,17 @@
 void menuBuku() {
     int pilihan;
     do {  //untuk memulai loop yang pasti dijalankan minimal 1 kali.
-        printf("\n=== MENU BUKU ===\n");
+        printf("\n================================\n");
+        printf("             MENU BUKU            \n");
+        printf("==================================\n");
         printf("1. Tambah Buku\n");
         printf("2. Lihat Daftar Buku\n");
         printf("3. Cari Buku\n");
         printf("4. Edit Buku\n");
         printf("5. Hapus Buku\n");
         printf("0. Kembali\n");
+        printf("================================\n");
+
         printf("Pilihan: ");
         scanf("%d", &pilihan);
         getchar();

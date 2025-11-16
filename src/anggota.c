@@ -3,10 +3,14 @@
 void menuAnggota() { //menampilkan menu anggota yang dapat dipilih
     int pilihan;
     do {
-        printf("\n==== MENU ANGGOTA ====\n");
+        printf("\n================================\n");
+        printf("          MENU ANGGOTA          \n");
+        printf("==================================\n");
         printf("1. Daftar Anggota Baru\n");
         printf("2. Lihat Daftar Anggota\n");
         printf("0. Kembali\n");
+        printf("================================\n");
+
         printf("Pilihan: ");
         scanf("%d", &pilihan);
         getchar();
