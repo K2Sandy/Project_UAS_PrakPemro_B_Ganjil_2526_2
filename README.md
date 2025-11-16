@@ -71,7 +71,7 @@ Seluruh data pada sistem disimpan ke file eksternal berformat **.txt** secara mo
    Program terdiri dari beberapa file, maka compile dengan:
 
    ```bash
-   gcc main.c anggota.c buku.c peminjaman.c login.c Menu_Utilitas.c -o PerpusMini.exe
+   gcc *.c -o PerpusMini.exe
    ```
 
 3. **Jalankan program**
