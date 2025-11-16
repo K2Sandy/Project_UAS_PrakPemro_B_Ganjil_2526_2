@@ -17,20 +17,25 @@ Seluruh data pada sistem disimpan ke file eksternal berformat **.txt** secara mo
 * Kalo ga ada akun login, pasti akan otomatis kebuat kok.
 * Kalo mau buat akun baru dengan username dan pw sendiri silahkan kakk, udah ada fiturnya kok
 
+## 🔄 Utilitas Admin
+* Menambahkan Akun Admin
+* Mengubah Password Akun Admin
+* Menampilkan ranking buku paling sering dipinjam.
+* Mengelola batas maksimal durasi peminjaman.
+* Mengatur berapa denda kalo telat per hari
+
 ## 📘 Manajemen Buku
 
 * Menambahkan buku baru.
 * Menghapus buku.
 * Mengedit informasi buku.
 * Melihat daftar buku.
-* Kategori buku: Fiksi, Non-Fiksi, Komik, Majalah, Referensi.
-* Mengubah status buku (Tersedia / Dipinjam).
-* Menampilkan ranking buku paling sering dipinjam.
+* Mencari buku berdasarkan Keyword
 
 ## 👥 Manajemen Anggota
 
 * Mendaftarkan anggota baru.
-* Melihat riwayat peminjaman anggota.
+* Melihat daftar anggota.
 * Kami sudah menyiapkan akun anggota untuk abang dan kakak-kakak aslab:
   * **Bang Hanif — 20250006**
   * **Kak Niswa — 20250007**
@@ -42,8 +47,10 @@ Seluruh data pada sistem disimpan ke file eksternal berformat **.txt** secara mo
 
 * Melakukan peminjaman dan pengembalian buku.
 * Menghitung denda keterlambatan otomatis dengan waktu real-time.
-* Mengelola batas maksimal durasi peminjaman.
+* Melihat Riwayat Peminjaman Anggota
 * Kemarin abang dan kakak-kakak juga sempat pinjam buku di PerpusMini kami ya? Jangan lupa dikembalikan bang/kak… nanti kena denda 😄
+
+
 
 ## 📂 Penyimpanan Data
 
