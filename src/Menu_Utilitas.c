@@ -15,7 +15,7 @@ void menuUtilitas(){
         printf("0. kembali Ke Menu Utama\n");
         printf("Pilihan: "); scanf("%d", &pilihan);
 
-        switch (Pilihan) {
+        switch (Pilihan) {     //susun ulang fungsi sesuai menu
             case 1: tambahAkun(); break;
             case 2: ubahPassword(); break;
             case 3: rankingBuku(); break;
@@ -25,4 +25,67 @@ void menuUtilitas(){
             default: printf("Pilihan tidak valid! \n");
         }
     } while (pilihan != 0)
+}
+
+//ini fungsi untuk tambah akun baru
+void tambahAkun(){
+    login log;
+    FILE *f = fopen("data_login.txt", "a"); //
+    if (!f){
+        printf("File tidak ditemukan!\n");
+        return;
+    }
+
+    printf("Masukkan username baru: "); scanf("%s", log.username);
+    printf("Masukkan password baru: "); scanf("%s", log.password);
+
+    fprintf(f, "%s|%s\n", log.username, log.password);
+    fclose(f);
+    printf("Akun baru berhasil ditambahkan!\n");
+}
+
+//ini fungsi untuk unah password akun yang udah terdaftar
+void ubahPassword(){
+    char username_dicari[50], passwordBaru[50];
+    int ditemukan = 0;
+
+    FILE *f = fopen("data_login.txt", "r");
+    if (!f){
+        printf("File tidak ditemukan!\n");
+        return;
+    }
+
+    //sebelum ubah passwordnya, kita baca dulu semua akun yang ada
+    login daftar[100]; // kita asumsikan ada 100 akun
+    int i = 0
+    while(fscanf(f, "%[^|] %s\n", daftar[i].username, daftar[i].password) != EOF){
+        i++;
+    }
+    int totalAkun = i;
+    fclose(f);
+
+    //nah sekarang pilih akkun yang mmau diubah
+    printf("Masukkan username: "); scanf("%s", username_dicari);
+    printf("Masukkan password baru: "); scanf("%s", passwordBaru);
+
+    for (i = 0; i < totalAkun; i++){
+        if (strcmp(daftar[i].username, username_dicari) == 0){
+            strcpy(daftar[i].password, passwordBaru);
+            ditemukan = 1;
+            break;
+        }
+    }
+
+    if(!ditemukan){ //ini artinya kalau ketemu berarti !1 kalo ga ketemu !0
+        printf("Username tidak ditemukan!\n");
+        return;
+    }
+
+    //nah sekarang kita tulis ulang semua akunnya
+    FILE *fw = fopen("data_login.txt", "w");
+    for (i = 0; i < totalAkun; i++){
+        fprintf(fw, "%s|%s\n", daftar[i].username, daftar[i].password);
+    } 
+    fclose(fw);
+    printf("password berhasil diubah!\n");
 }
