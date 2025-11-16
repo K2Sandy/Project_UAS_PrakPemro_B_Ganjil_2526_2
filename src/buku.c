@@ -116,25 +116,44 @@ void tambahBuku() {
 }
 
 void lihatDaftarBuku() {
+    printf("\n=== LIHAT DAFTAR BUKU  ===\n");
+    for (int i = 0; i < 20; i++) {
+        printf("%2d. %s\n", i + 1, DAFTAR_KATEGORI[i]);
+    }
+     int pilih;
+    printf("Pilih kategori (1-20): ");
+    scanf("%d", &pilih);
+    getchar();
+
+    if (pilih < 1 || pilih > 20) {
+        printf("Kategori tidak valid!\n");
+        return;
+    }
+     const char *kategoriDipilih = DAFTAR_KATEGORI[pilih - 1];
+
     Buku b;
     FILE *f = fopen("data_buku.txt", "r");
     if (!f) {
         printf("Belum ada data buku.\n");
         return;
     }
+    
 
     // untuk print header tabel 
-    printf("\n===== DAFTAR BUKU =====\n");
-    printf("%-8s | %-25s | %-20s | %-10s | %-5s | %-5s | %-5s\n",
-           "ID", "Judul", "Penulis", "Kategori", "Thn", "Stok", "Pinjam");
-    printf("--------------------------------------------------------------------------\n");
+    printf("\n===== DAFTAR BUKU: %s =====\n", kategoriDipilih);
+    
     while (fscanf(f, "%[^|]|%[^|]|%[^|]|%[^|]|%d|%d|%d\n",
                   b.id, b.judul, b.penulis, b.kategori, &b.tahun, &b.stok, &b.dipinjam) != EOF) {
         // Untuk menampilkan data
-        printf("%-8s | %-25s | %-20s | %-10s | %-5d | %-5d | %-5d\n",
+        if (strcmp(b.kategori, kategoriDipilih) == 0) {
+            found = 1;
+            printf("%-8s | %-25s | %-20s | %-10s | %-5d | %-5d | %-5d\n",
                b.id, b.judul, b.penulis, b.kategori, b.tahun, b.stok, b.dipinjam);
-    }
+        }
     fclose(f);
+    
+    if (!found)
+        printf("Tidak ada buku dalam kategori ini.\n");
 }
 
 void cariBuku() {
