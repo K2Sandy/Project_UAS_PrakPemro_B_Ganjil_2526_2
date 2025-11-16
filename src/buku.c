@@ -148,7 +148,7 @@ void lihatDaftarBuku() {
         // Untuk menampilkan data
         if (strcmp(b.kategori, kategoriDipilih) == 0) {
             found = 1;
-            printf("%-8s | %-25s | %-20s | %-10s | %-5d | %-5d | %-5d\n",
+            printf("%-7s | %-25s | %-20s | %-10s | %-5d | %-5d | %-5d\n",
                b.id, b.judul, b.penulis, b.kategori, b.tahun, b.stok, b.dipinjam);
         }
     }
