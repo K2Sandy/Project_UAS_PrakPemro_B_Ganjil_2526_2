@@ -85,7 +85,7 @@ void ubahPassword(){
 
     //nah sekarang kita tulis ulang semua akunnya
     FILE *fw;
-    f w= fopen("data_login.txt", "w");
+    fw= fopen("data_login.txt", "w");
     for (i = 0; i < totalAkun; i++){
         fprintf(fw, "%s|%s\n", daftar[i].username, daftar[i].password);
     } 
@@ -142,4 +142,31 @@ void rankingBuku(){
                 daftar[i].penulis,
                 daftar[i].dipinjam);
     }
+}
+
+//kita lanjut bagian durasi maksimal peminjaman dan denda perhari
+void setDurasiMaksimal(){
+    printf("Durasi peminjaman maskimal saat ini: %d hari\n", durasiMaksimal);
+    printf("Masukkan durasi maksimal peminjaman baru: ");
+    int val;
+    scanf("%d", &val);
+    if (val < 0) {
+        printf("Nilai tidak valid. Durasi tidak diubah.\n");
+        return;
+    }
+    durasiMaksimal = val;
+    printf("Durasi maksimal peminjaman berhasil diubah menjadi %d hari\n", durasiMaksimal);
+}
+
+void setDendaPerhari() {
+    printf("Denda per hari saat ini: %d", dendaPerhari);
+    printf("Maukkan denda per hari baru: ");
+    int val;
+    scanf("%d", &val );
+    if (val < 0) {
+        printf("Nilai tidak valid. Denda tidak diubah.\n");
+        return;
+    }
+    dendaPerhari = val;
+    printf("Denda per hari berhasil diubah menjadi %d\n", dendaPerhari)
 }
