@@ -132,6 +132,7 @@ void lihatDaftarBuku() {
      const char *kategoriDipilih = DAFTAR_KATEGORI[pilih - 1];
 
     Buku b;
+    int found = 0; 
     FILE *f = fopen("data_buku.txt", "r");
     if (!f) {
         printf("Belum ada data buku.\n");
@@ -151,7 +152,7 @@ void lihatDaftarBuku() {
                b.id, b.judul, b.penulis, b.kategori, b.tahun, b.stok, b.dipinjam);
         }
     fclose(f);
-    
+
     if (!found)
         printf("Tidak ada buku dalam kategori ini.\n");
 }
