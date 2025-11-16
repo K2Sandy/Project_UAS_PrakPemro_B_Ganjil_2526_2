@@ -4,13 +4,13 @@
 int loginAdmin() {
     Login log;
     FILE *f;
-    f = fopen("data_login.txt", "r");
+    f = fopen("output/data_login.txt", "r");
     if (!f){
         printf("File tidak ditemukan. Membuat akun Admin default...\n");
-        FILE *fa = fopen("data_login.txt", "w");
+        FILE *fa = fopen("output/data_login.txt", "w");
         fprintf(fa, "admin|1234\n");
         fclose(fa);
-        f = fopen("data_login.txt", "r");
+        f = fopen("output/data_login.txt", "r");
     }
 
     char username[50], password[50], line[256];
