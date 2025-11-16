@@ -22,7 +22,7 @@ int loginAdmin() {
     scanf ("%s", password);
     
     while (fgets(line, sizeof(line), f)){
-        int n = sscanf(line, "%49[^|] %49s", log.username, log.password);
+        int n = sscanf(line, "%49[^|]|%49s", log.username, log.password);
         if (n != 2){
             continue;
         }
