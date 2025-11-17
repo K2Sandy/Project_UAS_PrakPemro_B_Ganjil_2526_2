@@ -59,7 +59,7 @@ void lihatAnggota() {
 //menampilkan menu daftar anggota
     while (fscanf(f, "%[^|]|%[^|]|%[^|]|%s\n", a.id, a.nama, a.alamat, a.no_telp) != EOF) {
 //mengambil input yang telah diinput oleh user
-        printf("%s - %s | %s | %s\n", a.id, a.nama, a.alamat, a.no_telp);
+        printf("%s - %s | %-30s | %s\n", a.id, a.nama, a.alamat, a.no_telp);
 //menampilkan data anggota yang sudah diinput user
     }
     fclose(f);
