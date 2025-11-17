@@ -28,7 +28,7 @@ void menuAnggota() { //menampilkan menu anggota yang dapat dipilih
 void daftarAnggota() {
 //menambah data anggota pada file .txt
     Anggota a;
-    FILE *f = fopen("data_anggota.txt", "a");
+    FILE *f = fopen("output/data_anggota.txt", "a");
     if (!f) {
         printf("Gagal membuka file data_anggota.txt\n");
         return;
@@ -48,7 +48,7 @@ void daftarAnggota() {
 void lihatAnggota() {
 //menampilkan data anggota yang sudah tersimpan
     Anggota a;
-    FILE *f = fopen("data_anggota.txt", "r");
+    FILE *f = fopen("output/data_anggota.txt", "r");
   //membuka file dengan mode read-only untuk membaca isi file
     if (!f) {
         printf("Belum ada data anggota.\n");

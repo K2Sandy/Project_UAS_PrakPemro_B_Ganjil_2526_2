@@ -6,9 +6,9 @@ int dendaPerhari = 1000; // default juga 1000
 void menuUtilitas(){
     int pilihan;
     do {
-        printf("\n=========================\n");
-        printf("\n      MENU UTILITAS      \n");
-        printf("\n ========================\n");
+        printf("\n=========================");
+        printf("\n      MENU UTILITAS      ");
+        printf("\n========================\n");
         printf("1.Tambah Akun Admin\n");
         printf("2. Ubah Password\n");
         printf("3. Lihat Ranking Buku\n");
@@ -33,7 +33,7 @@ void menuUtilitas(){
 void tambahAkun(){
     Login log;
     FILE *f; 
-    f = fopen("data_login.txt", "a"); 
+    f = fopen("output/data_login.txt", "a"); 
     if (!f){
         printf("File tidak ditemukan!\n");
         return;
@@ -53,7 +53,7 @@ void ubahPassword(){
     int ditemukan = 0;
 
     FILE *f;
-    f = fopen("data_login.txt", "r");
+    f = fopen("output/data_login.txt", "r");
     if (!f){
         printf("File tidak ditemukan!\n");
         return;
@@ -87,7 +87,7 @@ void ubahPassword(){
 
     //nah sekarang kita tulis ulang semua akunnya
     FILE *fw;
-    fw= fopen("data_login.txt", "w");
+    fw= fopen("output/data_login.txt", "w");
     for (i = 0; i < totalAkun; i++){
         fprintf(fw, "%s|%s\n", daftar[i].username, daftar[i].password);
     } 
@@ -100,9 +100,9 @@ void rankingBuku(){
     int totalBuku = 0;
 
     FILE *f;
-    f = fopen("data_buku.txt", "r");
+    f = fopen("output/data_buku.txt", "r");
     if (!f) {
-        printf("beelum ada data buku.\n"); 
+        printf("belum ada data buku.\n"); 
         return;
     }
 

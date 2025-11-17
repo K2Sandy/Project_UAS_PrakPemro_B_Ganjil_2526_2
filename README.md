@@ -1,7 +1,7 @@
-# 📚 Sistem Peminjaman Buku – Perpustakaan Mini
+# 📚 Sistem Perpustakaan Mini
 
-Repository ini berisi **Project Ujian Akhir Semester (UAS)** untuk mata kuliah **Praktikum Pemrograman B 2025/2026**, dikerjakan oleh **Kelompok 2**.
-Project ini mengimplementasikan **Sistem Peminjaman Buku Perpustakaan Mini** menggunakan bahasa **C**, yang berfungsi untuk mengelola data buku, anggota, peminjaman, pengembalian, serta perhitungan denda keterlambatan secara otomatis.
+Repository ini berisi **Proyek Ujian Akhir Semester (UAS)** untuk mata kuliah **Praktikum Pemrograman B 2025/2026**, dikerjakan oleh **Kelompok 2**.
+Project ini mengimplementasikan **Sistem Peminjaman Buku Perpustakaan Mini** menggunakan bahasa **C**, yang berfungsi untuk mengelola data buku, anggota, peminjaman, pengembalian, login admin serta perhitungan denda keterlambatan secara otomatis.
 
 Seluruh data pada sistem disimpan ke file eksternal berformat **.txt** secara modular.
 
@@ -12,6 +12,17 @@ Seluruh data pada sistem disimpan ke file eksternal berformat **.txt** secara mo
 ## 👩‍💼 Admin / Pustakawan
 
 * Login pustakawan.
+* **Username default: `admin`**
+* **Password default: `1234`**
+* Kalo ga ada akun login, pasti akan otomatis kebuat kok.
+* Kalo mau buat akun baru dengan username dan pw sendiri silahkan kakk, udah ada fiturnya kok
+
+## 🔄 Utilitas Admin
+* Menambahkan Akun Admin
+* Mengubah Password Akun Admin
+* Menampilkan ranking buku paling sering dipinjam.
+* Mengelola batas maksimal durasi peminjaman.
+* Mengatur berapa denda kalo telat per hari
 
 ## 📘 Manajemen Buku
 
@@ -19,20 +30,27 @@ Seluruh data pada sistem disimpan ke file eksternal berformat **.txt** secara mo
 * Menghapus buku.
 * Mengedit informasi buku.
 * Melihat daftar buku.
-* Kategori buku: Fiksi, Non-Fiksi, Komik, Majalah, Referensi.
-* Mengubah status buku (Tersedia / Dipinjam).
-* Menampilkan ranking buku paling sering dipinjam.
+* Mencari buku berdasarkan Keyword
 
 ## 👥 Manajemen Anggota
 
 * Mendaftarkan anggota baru.
-* Melihat riwayat peminjaman anggota.
+* Melihat daftar anggota.
+* Kami sudah menyiapkan akun anggota untuk abang dan kakak-kakak aslab:
+  * **Bang Hanif — 20250006**
+  * **Kak Niswa — 20250007**
+  * **Bang Faris — 20250008**
+  * **Bang Irfan — 20250009**
+* Kalo mau buat akun anggota baru juga bisa banget kok!
 
 ## 🔄 Peminjaman & Pengembalian
 
 * Melakukan peminjaman dan pengembalian buku.
-* Menghitung denda keterlambatan otomatis.
-* Mengelola batas maksimal durasi peminjaman.
+* Menghitung denda keterlambatan otomatis dengan waktu real-time.
+* Melihat Riwayat Peminjaman Anggota
+* Kemarin abang dan kakak-kakak juga sempat pinjam buku di PerpusMini kami ya? Jangan lupa dikembalikan bang/kak… nanti kena denda 😄
+
+
 
 ## 📂 Penyimpanan Data
 
@@ -43,36 +61,36 @@ Seluruh data pada sistem disimpan ke file eksternal berformat **.txt** secara mo
 # ▶️ Cara Menjalankan Program
 
 1. **Masuk ke folder proyek**
-   Pastikan Anda berada di direktori yang berisi semua file `.c` dan `perpustakaan.h`.
+   Pastikan sudah berada di direktori yang berisi semua file `.c` dan `perpustakaan.h`.
 
    ```bash
-   cd nama-folder-proyek
+   cd nama-Project_UAS_PrakPemro_B_Ganjil_2526_2-src
    ```
 
 2. **Compile program**
    Program terdiri dari beberapa file, maka compile dengan:
 
    ```bash
-   gcc main.c anggota.c buku.c peminjaman.c login.c Menu_Utilitas.c -o perpustakaan
+   gcc *.c -o PerpusMini.exe
    ```
 
 3. **Jalankan program**
 
    ```bash
-   ./perpustakaan
+   ./PerpusMini.exe
    ```
 
 ---
 
 # 👥 Kelompok 2
 
-| Nama                         | NPM             |
-|-------------------------------|----------------|
-| Ibnul Jawzy                  | 250810701100021 |
+| Nama                          | NPM             |
+| ----------------------------- | --------------- |
+| Ibnul Jawzy                   | 250810701100021 |
 | Muhammad Albharaka Putrosandy | 250810701100022 |
-| Muhammad Irfan               | 250810701100023 |
-| Putri Rahmatul Ulya          | 250810701100030 |
-| Fitri Br Manik               | 250810701100032 |
+| Muhammad Irfan                | 250810701100023 |
+| Putri Rahmatul Ulya           | 250810701100030 |
+| Fitri Br Manik                | 250810701100032 |
 
 ---
 

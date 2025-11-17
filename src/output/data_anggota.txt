@@ -1,0 +1,10 @@
+20250001|Kaka |Banda Aceh Kota|08116812397
+20250002|Jawzy|Meuraxa Gampong Baru|08123456789
+20250003|Fitri|Lueng Bata Tengah|08234567890
+20250004|Putri|Kuta Alam Seuleumak|08345678901
+20250005|Irfan|Darul Imarah Lamseupeu|08456789012
+20250006|Hanif|Peunayong Lamglumpang|08567890123
+20250007|Niswa|Baiturrahman Ulee Kareng|08678901234
+20250008|Faris|Syiah Kuala Lamteh|08789012345
+20250009|Irfan|Jaya Baru Lamteungoh|08890123456
+20250010|Aliah|Aceh Besar Lamteungoh|08901234567
